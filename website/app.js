@@ -46,6 +46,9 @@ async function perform(){
         //get the data from the server
         getData(sendUrl);
 
+        //updte UI
+        updateUi(tempreture, d, feeling)
+
     }catch(error){
         console.log(error);
     }
@@ -69,3 +72,12 @@ const sendData = async(url ="", data = {}) => {
 const getData = async (url="") => {
     const getData =await fetch(url);
     const parseData = await getData.json();
+};
+
+//update the UI
+const updateUi = (temp, date, feel) => {
+    console.log(date)  // for checking
+    document.getElementById("temp").innerText = `Tempreture: ${temp}`;
+    document.getElementById("date").innerText = `Date: ${date}`;
+    document.getElementById("content").innerText = `You feel: ${feel}`;
+};
