@@ -27,4 +27,10 @@ async function perform(){
     //url to be use with fetch
     const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}&units=metric`;
 
+    //get the zip code entred from the user
+    let zipCode = document.getElementById("zip").value;
+
+    //get the user inputs from feeling input feild
+    const feeling = document.getElementById("feelings").value;
+
 };
