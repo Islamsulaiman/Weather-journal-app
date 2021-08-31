@@ -33,4 +33,15 @@ async function perform(){
     //get the user inputs from feeling input feild
     const feeling = document.getElementById("feelings").value;
 
+    try{
+        //get the external data from the API, and return tempreture.
+        let response = await fetch(url);
+        let data = await response.json();
+        let tempreture = data.main.temp;
+        console.log(tempreture) ;  // for checking
+    
+    }catch(error){
+        console.log(error);
+    }
+
 };
