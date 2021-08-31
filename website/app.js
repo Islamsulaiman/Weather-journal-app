@@ -10,3 +10,13 @@ let envUrl = "http://127.0.0.1:3000/env";
 let allUrl = "http://127.0.0.1:3000/all";
 // the url for send endpoint
 let sendUrl = "http://127.0.0.1:3000/send";
+
+//get the id for Generate button, so I can maka an event for it.
+const generate = document.getElementById("generate");
+
+// event for clicking generate button, to get data via fetch() when clicked.
+generate.addEventListener("click", perform);
+
+async function perform(){
+
+};
