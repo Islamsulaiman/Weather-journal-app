@@ -39,9 +39,25 @@ async function perform(){
         let data = await response.json();
         let tempreture = data.main.temp;
         console.log(tempreture) ;  // for checking
+
+        //send data=[temp, feelings, date] to endPoint via fetch()
+        sendData(allUrl, {temp:tempreture, date:newDate, feel:feeling});  // we should add the host name before the endpoint name to make fetch work..
     
     }catch(error){
         console.log(error);
     }
 
+};
+
+
+//send data=[temp, feelings, date] to endPoint via fetch()
+const sendData = async(url ="", data = {}) => {
+    await fetch(url, {
+        method :"POST",
+        credentials:"same-origin",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify(data)
+    })
 };
