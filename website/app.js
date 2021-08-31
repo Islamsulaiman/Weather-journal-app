@@ -43,6 +43,9 @@ async function perform(){
         //send data=[temp, feelings, date] to endPoint via fetch()
         sendData(allUrl, {temp:tempreture, date:newDate, feel:feeling});  // we should add the host name before the endpoint name to make fetch work..
     
+        //get the data from the server
+        getData(sendUrl);
+
     }catch(error){
         console.log(error);
     }
@@ -61,3 +64,8 @@ const sendData = async(url ="", data = {}) => {
         body: JSON.stringify(data)
     })
 };
+
+//get data from server
+const getData = async (url="") => {
+    const getData =await fetch(url);
+    const parseData = await getData.json();
