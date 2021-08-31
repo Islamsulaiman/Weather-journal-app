@@ -30,6 +30,23 @@ const filePath = path.resolve(process.cwd() + "/config/.env")  //get the full pa
 const dotenv = require("dotenv")  //require dotenv module
 dotenv.config({path: filePath})  //pass the full path to dotenv module to allow as accessing ".env" file content
 
+//endpoint to send all the needed data from ".env" file
+app.get("/env", (req, res) => {
+    let API = process.env.API_KEY; //get the data
+    res.send({apiKey: API})  //send this object to "app.js"
+});
+
+
+//endpoint to recive data and store it into projectData
+app.post("/all", (req, res) => {
+    projectData = { ...req.body};
+    res.send();
+});
+
+app.get("/send", (req, res) => {
+    res.send(projectData);
+});
+
 // Setup Server
 const port = process.env.PORT || 3000;  // port number, either enviroment var or hardcoded.
 const server = app.listen(port, listening);
