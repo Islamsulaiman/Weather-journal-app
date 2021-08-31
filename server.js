@@ -24,6 +24,12 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website'));
 
+// Require path module to detrmine the path of ".env" across all systems
+const path = require("path")
+const filePath = path.resolve(process.cwd() + "/config/.env")  //get the full path to ".env"
+const dotenv = require("dotenv")  //require dotenv module
+dotenv.config({path: filePath})  //pass the full path to dotenv module to allow as accessing ".env" file content
+
 // Setup Server
 const port = process.env.PORT || 3000;  // port number, either enviroment var or hardcoded.
 const server = app.listen(port, listening);
