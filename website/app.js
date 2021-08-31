@@ -19,4 +19,12 @@ generate.addEventListener("click", perform);
 
 async function perform(){
 
+    //get the api key via fetch from the endpoint env to help getting the data from external server.
+    const response = await fetch(envUrl)
+    const data = await response.json();
+    const apiKey = data.apiKey;         //we used ".apiKey" because its the name we used in our endpoint object we sent
+
+    //url to be use with fetch
+    const url = `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode}&appid=${apiKey}&units=metric`;
+
 };
